@@ -1,0 +1,230 @@
+import {Cite, Image, Notes, Fit} from 'spectacle';
+import {DarkSlide, LightSlide, ProfileSlide, CodeSlide} from './slides';
+import RegularComponent from './regular-component';
+
+
+# How Linters, Compilers & Other Cool Things Work
+
+---
+
+<Image src="book.jpg" />
+
+<Notes>
+  As a kid, this was my favorite book...
+
+  It explains how simple machines and complex machines work. For a kid, it's eye-opening.
+
+  There's also these cute wooly mammoths sprinkled throughout, and sometimes I really wish they weren't extinct.
+</Notes>
+
+---
+
+<Notes>
+  As a software developer, I'm still really curious about how things work. There's a lot to be curious about: browser internals, rendering engines, virtual doms, asynchronous rendering in React...
+</Notes>
+
+---
+
+# Code Review
+
+<Notes>
+  There's one particular technique that I've realized is exceptionally practical. What if we could automate code reviews by detecting patterns in code?
+</Notes>
+---
+## API Changes
+
+<Notes>
+   What if we could automate refactors when library APIs change?
+</Notes>
+---
+### Language Features
+
+<Notes>
+   What if we could implement our own language features? What if we could simply --understand-- how the code we write, is interpreted and understood by the machine?
+</Notes>
+
+---
+
+# We can!
+
+<Notes>
+Well, I'm here to share: these are the things --all of us-- can do with ESLint, Babel, and code transforms.
+</Notes>
+
+---
+
+export default LightSlide
+
+# Be Curious With me
+
+<Notes>
+Today, I ask you to be curious with me for the next 20 minutes, and learn about how linters, compilers, and other cool things work.
+</Notes>
+
+---
+
+export default ProfileSlide
+
+<Notes>
+My name is Will Klein, and I'm from Longmont Colorado. I work at Workday, where I build products I hope make someone's day a little better, a little happier.
+</Notes>
+
+---
+
+
+<Notes>
+Let's dive in right away, and talk about computer language. For cool stuff to happen in the browser, the code we write goes through a process of being transformed into something else, over and over again, until the computer has 1s and 0s hitting the CPU. To understand this, we don't need to learn assembly language, or advanced compiler techniques. We only need JavaScript.
+</Notes>
+
+---
+export default CodeSlide
+
+```javascript
+// Life, Universe, and Everything
+
+var answer = 6 * 7;
+
+// => 100011101010111010100011
+[var] [answer] [=] [6] [*] [7][;]
+
+```
+
+<Notes>
+  how does this work?
+</Notes>
+
+---
+export default CodeSlide
+
+```javascript
+// Life, Universe, and Everything
+
+[var] [answer] [=] [6] [*] [7][;]
+
+// => 100011101010111010100011
+
+```
+
+<Notes>
+  We start by breaking up this string into a sequence of tokens.
+
+  We know a little bit about the type of these tokens, but we need something more to understand their relationship to each other.
+</Notes>
+---
+
+export default LightSlide
+
+
+<Fit>
+  <a href="https://astexplorer.net/" target="_blank">
+    <Image src="tree.png" />
+  </a>
+</Fit>
+---
+
+<Notes>
+Let's relate this to ESLint. ESLint is essentially a syntax analyzer, or rather, a program that runs our code through dozens if not hundreds of syntax analyzers. each analyzer is called a rule. a rule that enforces some best practice, or protects against some antipattern. the rule is essentially analyzing our code, looking for a pattern. when it finds that pattern, it tells us if we're "doing something we shouldn't." this could help keep bugs out of production, or just make our code reviews --a lot nicer--. the real magic of eslint is that it's completely pluggable, and one key piece of it is the rules themselves. you can write your own rules, and they execute the same as any core rule packaged as part of the project.
+</Notes>
+---
+
+
+<Notes>
+an ESLint rule starts with one thing: what node types do we are about?
+</Notes>
+---
+
+
+<Notes>
+we define what nodes should be passed into our rule. ESLint takes care of parsing our code into an AST, walking that tree, and when it finds a node that our rule cares about, the node is passed into our matching function. there, we can look at the node's children, and ancestors, to look for a pattern. maybe we have a ternary, so we look for ... once we have that, we can check its children to see if someone thought it would be "clever" to nest a ternary inside a ternary, because (yo dawg, i heard you like ternaries)
+</Notes>
+---
+
+
+<Notes>
+fun fact, i used to watch xhibit host pimp my ride. it was fascinating what they could do with cars
+</Notes>
+---
+
+
+<Notes>
+when your rule finds a pattern it doesn't like, you just report it, and then that's one less thing to worry about in code review (it also saves me hours of agonizing how to write my code because less intelligible paths are closed to me)
+</Notes>
+---
+
+
+<Notes>
+what about babel?
+</Notes>
+---
+
+
+<Notes>
+That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff (kind of like how MTV would mutate a car)
+</Notes>
+---
+
+
+<Notes>
+codemods?
+</Notes>
+---
+
+
+<Notes>
+well, they're a LOT like babel transforms, except... you're a lot more likely to have an actual use case. it's hard to find an actual babel transform you'd want to write, but if you ever maintain some kind of library API, or really any shared code with a public interface that other code can interface with (this is all of us), well making changes to that can have varying levels of... IMPACT. You do NOT want to hand-modify dozens or hundreds of lines of code because you changed your function arguments into an object map. You want to use a codemod.
+
+BTW, this is also super awesome for actual library maintainers with NPM packages. Just imagine a breaking change being released with a codemod that can magically upgrade code belonging to ALL THE INTERNET USERS WHO ARE ALREADY SO THANKFUL FOR YOUR WONDERFUL WORK. Cool projects like React, Ember, etc do this, and they rock.
+</Notes>
+---
+
+export default DarkSlide
+
+<Notes>
+DEVELOPERS DEVELOPERS DEVELOPERS
+
+I really get this guy. I think he likes ASTs. It's the kind of thing he would do.
+</Notes>
+---
+
+export default DarkSlide
+
+<Notes>
+No joke though, this stuff is like superpowers. We can automate code review, invent our own language syntax (cross this out don't do it), and autoupgrade breaking API changes. I think 1% of developers understand and try this. I want this to be more like 10% of developers. This can really benefit your team, your organization, and your users.
+</Notes>
+---
+
+<Notes>
+Let me share one more story. One of my favorite JSConf talks was from a young developer giving his first conference talk. He shared some history of why he got into learning about ASTs.
+</Notes>
+---
+> There was this new thing called ES6 ... There was a large gap in my knowledge on parsers, compilers and generally the intracacies of JavaScript. so I decided to make an ES6 transpiler to learn it, called 6to5.
+
+<Cite>Sebastian McKenzie, author of <strike>6to5</strike> Babel</Cite>
+---
+
+
+<Notes>
+Now ... I'm not about to go out and write my own JavaScript compiler, but thanks his work, what Nicholas Zakas has done with ESLint, and the work of many, many other open source contributors, we have a fantastic set of tools that all of us can extend for ourselves.
+</Notes>
+---
+
+
+<Notes>
+Do me a favor? Go forth, and explore ASTs!
+</Notes>
+---
+
+
+<Notes>
+Do your teams a favor? Try automating your code reviews! Use (and write) codemods!
+</Notes>
+---
+
+<Notes>
+Do Sebastian a favor? Understand Babel, but don't write more plugins. apparently they are the bane of his existence trying to enhance Babel while supporting plugins going forward.
+</Notes>
+---
+
+<Notes>
+This has been fun, thanks for having me.
+</Notes>
