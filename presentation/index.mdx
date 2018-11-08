@@ -1,27 +1,27 @@
-import {Cite, Image, Notes, Fit} from 'spectacle';
-import {DarkSlide, LightSlide, ProfileSlide, CodeSlide} from './slides';
-import RegularComponent from './regular-component';
-
+import { Cite, Image, Notes, Fit } from 'spectacle'
+import { DarkSlide, LightSlide, ProfileSlide, CodeSlide } from './slides'
 
 # How Linters, Compilers & Other Cool Things Work
 
 ---
 
-<Fit>
-<Image src="book.jpg" />
-</Fit>
+![](book.jpg)
+
 <Notes>
-  As a kid, this was my favorite book...
+  As a kid, this was my favorite book
 
-  It explains how simple machines and complex machines work. For a kid, it's eye-opening.
+It explains how simple machines and complex machines work. For a kid, it's eye-opening.
 
-  There's also these cute wooly mammoths sprinkled throughout, and sometimes I really wish they weren't extinct.
+There's also these cute wooly mammoths sprinkled throughout, and sometimes I really wish they weren't extinct.
+
 </Notes>
 
 ---
 
 <Notes>
-  As a software developer, I'm still really curious about how things work. There's a lot to be curious about: browser internals, rendering engines, virtual doms, asynchronous rendering in React...
+  As a software developer, I'm still really curious about how things work.
+  There's a lot to be curious about: browser internals, rendering engines,
+  virtual doms, asynchronous rendering in React...
 </Notes>
 
 ---
@@ -35,10 +35,13 @@ import RegularComponent from './regular-component';
 ### Language Features
 
 <Notes>
-   What if we could implement our own language features? What if we could simply --understand-- how the code we write, is interpreted and understood by the machine?
+  What if we could implement our own language features? What if we could simply
+  --understand-- how the code we write, is interpreted and understood by the
+  machine?
 </Notes>
 
 ---
+
 ## API Changes
 
 <Notes>
@@ -49,7 +52,8 @@ import RegularComponent from './regular-component';
 # We can!
 
 <Notes>
-Well, I'm here to share: these are the things --all of us-- can do with ESLint, Babel, and code transforms.
+  Well, I'm here to share: these are the things --all of us-- can do with
+  ESLint, Babel, and code transforms.
 </Notes>
 
 ---
@@ -59,7 +63,8 @@ export default DarkSlide
 # how linters, compilers, and other cool things work.
 
 <Notes>
-Today, I ask you to be curious with me for the next 20 minutes, and learn about how linters, compilers, and other cool things work.
+  Today, I ask you to be curious with me for the next 20 minutes, and learn
+  about how linters, compilers, and other cool things work.
 </Notes>
 
 ---
@@ -67,17 +72,23 @@ Today, I ask you to be curious with me for the next 20 minutes, and learn about 
 export default ProfileSlide
 
 <Notes>
-My name is Will Klein, and I'm from Longmont Colorado. I work at Workday, where I build products I hope make someone's day a little better, a little happier.
+  My name is Will Klein, and I'm from Longmont Colorado. I work at Workday,
+  where I build products I hope make someone's day a little better, a little
+  happier.
 </Notes>
 
 ---
-
 
 <Notes>
-Let's dive in right away, and talk about computer language. For cool stuff to happen in the browser, the code we write goes through a process of being transformed into something else, over and over again, until the computer has 1s and 0s hitting the CPU. To understand this, we don't need to learn assembly language, or advanced compiler techniques. We only need JavaScript.
+  Let's dive in right away, and talk about computer language. For cool stuff to
+  happen in the browser, the code we write goes through a process of being
+  transformed into something else, over and over again, until the computer has
+  1s and 0s hitting the CPU. To understand this, we don't need to learn assembly
+  language, or advanced compiler techniques. We only need JavaScript.
 </Notes>
 
 ---
+
 export default CodeSlide
 
 ```javascript
@@ -90,11 +101,10 @@ var answer = 6 * 7;
 
 ```
 
-<Notes>
-  how does this work?
-</Notes>
+<Notes>how does this work?</Notes>
 
 ---
+
 export default CodeSlide
 
 ```javascript
@@ -109,12 +119,13 @@ export default CodeSlide
 <Notes>
   We start by breaking up this string into a sequence of tokens.
 
-  We know a little bit about the type of these tokens, but we need something more to understand their relationship to each other.
+We know a little bit about the type of these tokens, but we need something more to understand their relationship to each other.
+
 </Notes>
+
 ---
 
 export default LightSlide
-
 
 <Fit>
   <a href="https://astexplorer.net/" target="_blank">
@@ -122,7 +133,6 @@ export default LightSlide
   </a>
 </Fit>
 ---
-
 
 <Fit>
   <a href="https://eslint.org/" target="_blank">
@@ -135,7 +145,6 @@ Let's relate this to ESLint. ESLint is essentially a syntax analyzer, or rather,
 </Notes>
 ---
 
-
 <Fit>
   <a href="https://eslint.org/" target="_blank">
     <Image src="eslint.svg" />
@@ -146,7 +155,6 @@ Let's relate this to ESLint. ESLint is essentially a syntax analyzer, or rather,
 an ESLint rule starts with one thing: what node types do we are about?
 </Notes>
 ---
-
 
 <Fit>
   <a href="https://eslint.org/" target="_blank">
@@ -159,7 +167,6 @@ we define what nodes should be passed into our rule. ESLint takes care of parsin
 </Notes>
 ---
 
-
 <Fit>
   <a href="https://eslint.org/docs/rules/no-nested-ternary" target="_blank">
     <Image src="eslint.svg" />
@@ -168,9 +175,10 @@ we define what nodes should be passed into our rule. ESLint takes care of parsin
 
 <Notes>
 
-
 maybe we have a ternary, so we look for ... once we have that, we can check its children to see if someone thought it would be "clever" to nest a ternary inside a ternary, because (yo dawg, i heard you like ternaries)
+
 </Notes>
+
 ---
 
 <Fit>
@@ -182,7 +190,6 @@ maybe we have a ternary, so we look for ... once we have that, we can check its 
 when your rule finds a pattern it doesn't like, you just report it, and then that's one less thing to worry about in code review (it also saves me hours of agonizing how to write my code because less intelligible paths are closed to me)
 </Notes>
 ---
-
 
 <Fit>
   <a href="https://github.com/babel/babel" target="_blank">
@@ -207,7 +214,9 @@ well, they're a LOT like babel transforms, except... you're a lot more likely to
 <Notes>
 
 BTW, this is also super awesome for actual library maintainers with NPM packages. Just imagine a breaking change being released with a codemod that can magically upgrade code belonging to ALL THE INTERNET USERS WHO ARE ALREADY SO THANKFUL FOR YOUR WONDERFUL WORK. Cool projects like React, Ember, etc do this, and they rock.
+
 </Notes>
+
 ---
 
 export default LightSlide
@@ -221,7 +230,9 @@ export default LightSlide
 I really get this guy. I think he likes ASTs. It's the kind of thing he would do.
 
 No joke though, this stuff is like superpowers. We can automate code review, invent our own language syntax (cross this out don't do it), and autoupgrade breaking API changes. I think 1% of developers understand and try this. I want this to be more like 10% of developers. This can really benefit your team, your organization, and your users.
+
 </Notes>
+
 ---
 
 <Notes>
@@ -230,7 +241,9 @@ Let me share one more story. One of my favorite JSConf talks was from a young de
 ---
 > There was this new thing called ES6 ... There was a large gap in my knowledge on parsers, compilers and generally the intracacies of JavaScript. so I decided to make an ES6 transpiler to learn it, called 6to5.
 
-<Cite>Sebastian McKenzie, author of <strike>6to5</strike> Babel</Cite>
+<Cite>
+  Sebastian McKenzie, author of <strike>6to5</strike> Babel
+</Cite>
 
 <Notes>
 Now ... I'm not about to go out and write my own JavaScript compiler, but thanks his work, what Nicholas Zakas has done with ESLint, and the work of many, many other open source contributors, we have a fantastic set of tools that all of us can extend for ourselves.
@@ -252,6 +265,7 @@ Do your teams a favor? Try automating your code reviews! Use (and write) codemod
 ---
 
 # Do NOT
+
 ## write more Babel Plugins
 
 <Notes>
@@ -260,10 +274,12 @@ Do Sebastian a favor? Understand Babel, but don't write more plugins. apparently
 ---
 
 # DO
+
 ## write a code mod
 
 <Notes>
-the next time you have shared code with breaking changes and lots of usages, internally, or out in the wild
+  the next time you have shared code with breaking changes and lots of usages,
+  internally, or out in the wild
 </Notes>
 
 ---
@@ -280,6 +296,4 @@ export default LightSlide
   <Image src="https://media.giphy.com/media/3oz8xIsloV7zOmt81G/giphy.gif" />
 </Fit>
 
-<Notes>
-This has been fun, thanks for having me.
-</Notes>
+<Notes>This has been fun, thanks for having me.</Notes>
