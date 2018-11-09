@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 import Redbox from 'redbox-react'
 import { Deck, Slide } from 'spectacle'
-import components from './presentation/components'
+// import components from './presentation/components'
 import slides, { transitions } from './presentation/index.mdx'
 import theme from './presentation/theme'
 

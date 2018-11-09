@@ -48,10 +48,12 @@ const _CodePane = ({ children, language }) => (
 
 _CodePane.propTypes = { code: PropTypes.string, language: PropTypes.string }
 
+const imageStyles = {
+  maxHeight: '600px'
+}
+
 const _Image = ({ alt, src }) => (
-  <Fit>
-    <Image alt={alt} src={src} />
-  </Fit>
+  <Image styles={imageStyles} height={600} alt={alt} src={src} />
 )
 
 export default {
