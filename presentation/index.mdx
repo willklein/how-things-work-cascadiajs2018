@@ -139,32 +139,32 @@ We know a little bit about the type of these tokens, but we need something more 
 
 export default LightSlide
 
-![](images/tree.png)
+![](tree.png)
 
 ---
 
-![](images/eslint.svg)
+![](eslint.svg)
 
 <Notes>
 Let's relate this to ESLint. ESLint is essentially a syntax analyzer, or rather, a program that runs our code through dozens if not hundreds of syntax analyzers. each analyzer is called a rule. a rule that enforces some best practice, or protects against some antipattern. the rule is essentially analyzing our code, looking for a pattern. when it finds that pattern, it tells us if we're "doing something we shouldn't." this could help keep bugs out of production, or just make our code reviews --a lot nicer--. the real magic of eslint is that it's completely pluggable, and one key piece of it is the rules themselves. you can write your own rules, and they execute the same as any core rule packaged as part of the project.
 </Notes>
 ---
 
-![](images/eslint.svg)
+![](eslint.svg)
 
 <Notes>
 an ESLint rule starts with one thing: what node types do we are about?
 </Notes>
 ---
 
-![](images/eslint.svg)
+![](eslint.svg)
 
 <Notes>
 we define what nodes should be passed into our rule. ESLint takes care of parsing our code into an AST, walking that tree, and when it finds a node that our rule cares about, the node is passed into our matching function. there, we can look at the node's children, and ancestors, to look for a pattern.
 </Notes>
 ---
 
-![](images/eslint.svg)
+![](eslint.svg)
 [rule](https://eslint.org/docs/rules/no-nested-ternary)
 
 <Notes>
@@ -176,14 +176,14 @@ maybe we have a ternary, so we look for ... once we have that, we can check its 
 ---
 
 
-![](images/eslint.svg)
+![](eslint.svg)
 
 <Notes>
 when your rule finds a pattern it doesn't like, you just report it, and then that's one less thing to worry about in code review (it also saves me hours of agonizing how to write my code because less intelligible paths are closed to me)
 </Notes>
 ---
 
-![](images/babel.svg)
+![](babel.svg)
 
 <Notes>
 That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
@@ -209,7 +209,7 @@ BTW, this is also super awesome for actual library maintainers with NPM packages
 
 export default LightSlide
 
-![](images/developers.gif)
+![](developers.gif)
 
 <Notes>
 
