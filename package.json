@@ -19,7 +19,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-transition-group": "2",
-    "spectacle": "5.2.0",
+    "spectacle": "5.2.2",
     "spectacle-renderer": "^0.0.3"
   },
   "devDependencies": {
@@ -62,7 +62,6 @@
     "react-transform-catch-errors": "^1.0.2",
     "redbox-react": "^1.6.0",
     "rimraf": "^2.6.2",
-    "spectacle-theme-sober": "^0.1.0",
     "stringify-object": "^3.2.2",
     "style-loader": "^0.22.0",
     "surge": "latest",
