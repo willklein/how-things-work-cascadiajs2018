@@ -24,8 +24,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.mdx?$/,
-        loader: "html-loader!markdown-loader?gfm=false"
+        test: /\.mdx$/,
+        exclude: /node_modules/,
+        use: [
+          { loader: "babel-loader" },
+          { loader: require.resolve('./loader.js') }]
       },
       {
         test: /\.(js|jsx)$/,
