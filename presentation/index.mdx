@@ -1,5 +1,5 @@
-import { Cite, Fill, Fit, Image, Notes } from 'spectacle'
-import { ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide} from './slides'
+import { Appear, Cite, Fill, Fit, Image, Notes } from 'spectacle'
+import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide} from './slides'
 
 export default TitleSlide
 
@@ -142,6 +142,14 @@ We know a little bit about the type of these tokens, but we need something more 
 
 ---
 
+![](babel.svg)
+
+<Notes>
+  That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
+</Notes>
+
+---
+
 <Image src="tree.png" width={1000} />
 
 ---
@@ -150,110 +158,32 @@ export default ExplorerSlide
 
 ---
 
-<Image src="eslint.svg" width={1000} />
+export default KungFuSlide
+
 
 <Notes>
-Let's relate this to ESLint. ESLint is essentially a syntax analyzer, or rather, a program that runs our code through dozens if not hundreds of syntax analyzers. each analyzer is called a rule. a rule that enforces some best practice, or protects against some antipattern. the rule is essentially analyzing our code, looking for a pattern. when it finds that pattern, it tells us if we're "doing something we shouldn't." this could help keep bugs out of production, or just make our code reviews --a lot nicer--. the real magic of eslint is that it's completely pluggable, and one key piece of it is the rules themselves. you can write your own rules, and they execute the same as any core rule packaged as part of the project.
-</Notes>
----
-
-<Image src="eslint.svg" width={1000} />
-
-<Notes>
-an ESLint rule starts with one thing: what node types do we are about?
-</Notes>
----
-
-<Image src="eslint.svg" width={1000} />
-
-<Notes>
-we define what nodes should be passed into our rule. ESLint takes care of parsing our code into an AST, walking that tree, and when it finds a node that our rule cares about, the node is passed into our matching function. there, we can look at the node's children, and ancestors, to look for a pattern.
-</Notes>
----
-
-<Image src="eslint.svg" width={1000} />
-[rule](https://eslint.org/docs/rules/no-nested-ternary)
-
-<Notes>
-
-maybe we have a ternary, so we look for ... once we have that, we can check its children to see if someone thought it would be "clever" to nest a ternary inside a ternary, because (yo dawg, i heard you like ternaries)
-
+  We are JUST scratching the surface of what is possible with ASTs.
 </Notes>
 
 ---
 
+export default NeoSlide
 
-<Image src="eslint.svg" width={1000} />
+# I know <strike>Kung Fu</strike> ASTs
 
-<Notes>
-when your rule finds a pattern it doesn't like, you just report it, and then that's one less thing to worry about in code review (it also saves me hours of agonizing how to write my code because less intelligible paths are closed to me)
-</Notes>
----
-
-![](babel.svg)
-
-<Notes>
-That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
-</Notes>
----
-
-# Code mods
-
-<Notes>
-well, they're a LOT like babel transforms, except... you're a lot more likely to have an actual use case. it's hard to find an actual babel transform you'd want to write, but if you ever maintain some kind of library API, or really any shared code with a public interface that other code can interface with (this is all of us), well making changes to that can have varying levels of... IMPACT. You do NOT want to hand-modify dozens or hundreds of lines of code because you changed your function arguments into an object map. You want to use a codemod.
-</Notes>
----
-
-# NPM Library Maintainer Pro-tip
-
-<Notes>
-
-BTW, this is also super awesome for actual library maintainers with NPM packages. Just imagine a breaking change being released with a codemod that can magically upgrade code belonging to ALL THE INTERNET USERS WHO ARE ALREADY SO THANKFUL FOR YOUR WONDERFUL WORK. Cool projects like React, Ember, etc do this, and they rock.
-
-</Notes>
-
----
-
-export default LightSlide
-
-![](developers.gif)
-
-<Notes>
-
-I really get this guy. I think he likes ASTs. It's the kind of thing he would do.
-
-No joke though, this stuff is like superpowers. We can automate code review, invent our own language syntax (cross this out don't do it), and autoupgrade breaking API changes. I think 1% of developers understand and try this. I want this to be more like 10% of developers. This can really benefit your team, your organization, and your users.
-
-</Notes>
-
----
-
-<Notes>
-Let me share one more story. One of my favorite JSConf talks was from a young developer giving his first conference talk. He shared some history of why he got into learning about ASTs.
-</Notes>
----
-> There was this new thing called ES6 ... There was a large gap in my knowledge on parsers, compilers and generally the intracacies of JavaScript. so I decided to make an ES6 transpiler to learn it, called 6to5.
-
-<Cite>
-  Sebastian McKenzie, author of <strike>6to5</strike> Babel
-</Cite>
-
-<Notes>
-Now ... I'm not about to go out and write my own JavaScript compiler, but thanks his work, what Nicholas Zakas has done with ESLint, and the work of many, many other open source contributors, we have a fantastic set of tools that all of us can extend for ourselves.
-</Notes>
 ---
 
 # Explore ASTs
 
 <Notes>
-Do me a favor? Go forth, and explore ASTs!
+  Try it.
 </Notes>
 ---
 
 # Automate Code Review
 
 <Notes>
-Do your teams a favor? Try automating your code reviews! Use (and write) codemods!
+  Do your teams a favor? Try automating your code reviews! Use (and write) codemods!
 </Notes>
 ---
 
@@ -262,7 +192,7 @@ Do your teams a favor? Try automating your code reviews! Use (and write) codemod
 ## write more Babel Plugins
 
 <Notes>
-Do Sebastian a favor? Understand Babel, but don't write more plugins. apparently they are the bane of his existence trying to enhance Babel while supporting plugins going forward.
+  Do Sebastian a favor? Understand Babel, but don't write more plugins. apparently they are the bane of his existence trying to enhance Babel while supporting plugins going forward.
 </Notes>
 ---
 
@@ -277,9 +207,27 @@ Do Sebastian a favor? Understand Babel, but don't write more plugins. apparently
 
 ---
 
-export default DarkSlide
+<Notes>
+  Let me share one more story. One of my favorite JSConf talks was from a young developer giving his first conference talk. He shared some history of why he got into learning about ASTs.
+</Notes>
 
-# You know <strike>Kung Fu</strike> ASTs
+---
+
+> There was this new thing called ES6 ... There was a large gap in my knowledge on parsers, compilers and generally the intracacies of JavaScript. so I decided to make an ES6 transpiler to learn it, called 6to5.
+
+<Appear>
+  <Cite textColor="#95FDE4">
+    Sebastian McKenzie, author of <strike>6to5</strike> Babel
+  </Cite>
+</Appear>
+
+<Notes>
+  Now ... I'm not about to go out and write my own JavaScript compiler, but thanks his work, what Nicholas Zakas has done with ESLint, and the work of many, many other open source contributors, we have a fantastic set of tools that all of us can extend for ourselves.
+</Notes>
+
+---
+
+export default MachineSlide
 
 ---
 
@@ -287,26 +235,32 @@ export default MachineSlide
 
 # Build Your Own Analyzers
 
-
-<Notes>This has been fun, thanks for having me.</Notes>
-
 ---
 
 export default MachineSlide
 
 # Build Your Own CodeMods
 
-
-<Notes>This has been fun, thanks for having me.</Notes>
-
 ---
 
 export default MachineSlide
 
-# Build Cool Stuff
+# Build Cool Things
 
-<strong>Will Klein</strong>
+<Appear textColor="#FFF">
+  <div>
+    <p style={{color: '#FFF'}}>
+      <strong>Will Klein</strong>
+<br /><br />
+    @willslab
+    </p>
+  </div>
+</Appear>
 
-@willslab
+<Notes>
+  that help you, your team, and maybe everyone who writes javascript
 
-<Notes>This has been fun, thanks for having me.</Notes>
+  ... be more effective as developers.
+  
+  This has been fun, thanks for having me.
+</Notes>

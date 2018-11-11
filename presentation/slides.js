@@ -227,3 +227,13 @@ export const ExplorerSlide = ({ children, ...rest }) => (
     <iframe height="700" width="1000" src="http://localhost:8080" />
   </Slide>
 )
+
+export const KungFuSlide = ({ children, ...rest }) => (
+  <Slide bgImage="kungfu.gif" />
+)
+
+export const NeoSlide = ({ children, ...rest }) => (
+  <Slide bgImage="neoasts.webp" bgDarken={0.3}>
+    <MDXProvider components={whiteComponents}>{children}</MDXProvider>
+  </Slide>
+)
