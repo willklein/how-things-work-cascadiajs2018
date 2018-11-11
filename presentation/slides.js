@@ -128,7 +128,7 @@ export const DarkSlide = ({ children, ...rest }) => (
 )
 
 export const LightSlide = ({ children, ...rest }) => (
-  <Slide bgColor={theme.screen.colors.secondary} {...rest}>
+  <Slide bgColor={theme.screen.colors.primary} {...rest}>
     <MDXProvider components={lightComponents}>{children}</MDXProvider>
   </Slide>
 )
@@ -220,4 +220,10 @@ export const Title = () => (
   <Heading size={2} textColor={theme.screen.colors.primary}>
     How Linters, Compilers & Other Cool Things Work
   </Heading>
+)
+
+export const ExplorerSlide = ({ children, ...rest }) => (
+  <Slide>
+    <iframe height="700" width="1000" src="http://localhost:8080" />
+  </Slide>
 )
