@@ -64,6 +64,12 @@ export default ProfileSlide
 
 ---
 
+## Our Mission
+- daily developer problems
+- how compilers work
+- why ASTs are awesome
+- how ASTs solve our problems
+
 <Notes>
   As a software developer, I'm still really curious about how things work.
   There's a lot to be curious about: browser internals, rendering engines,
@@ -77,7 +83,9 @@ export default ProfileSlide
 <Notes>
   There's one particular technique that I've realized is exceptionally practical. What if we could automate code reviews by detecting patterns in code?
 </Notes>
+
 ---
+
 ### Language Features
 
 <Notes>
@@ -123,6 +131,14 @@ var answer = 6 * 7;
 
 ---
 
+![](babel.svg)
+
+<Notes>
+  That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
+</Notes>
+
+---
+
 export default CodeSlide
 
 ```javascript
@@ -138,14 +154,6 @@ export default CodeSlide
 
 We know a little bit about the type of these tokens, but we need something more to understand their relationship to each other.
 
-</Notes>
-
----
-
-![](babel.svg)
-
-<Notes>
-  That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
 </Notes>
 
 ---
