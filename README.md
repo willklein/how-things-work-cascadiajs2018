@@ -1,4 +1,4 @@
-# Spectacle Boilerplate
+# How Cool Things Work
 
 ## Contents
 
@@ -6,21 +6,9 @@
 - [Getting Started](#getting-started)
 - [Build & Deployment](#build-deployment)
 
-## Reference
+## Running the deck
 
-The Spectacle core API is available at [https://github.com/FormidableLabs/spectacle/blob/master/README.md](https://github.com/FormidableLabs/spectacle/blob/master/README.md).
-
-For more information about MDX syntax and how it all works, check out the [MDX documentation](https://mdxjs.com/).
-
-### Slides
-
-Slides are separated with `---`.
-
-To customize specific MDX functionality in Spectacle Boilerplate MDX, including what characters are used to demarcate slide breaks, refer to the `loader.js` file. We don't recommend altering this functionality unless necessary.
-
-## Getting Started
-
-After downloading the boilerplate, your first order of business is to open a terminal and run 
+Install dependencies:
 ```bash
 yarn
 ```
@@ -28,12 +16,6 @@ or
 ```bash
 npm install
 ```
-
-Next, run 
-```bash
-rm -R .git
-```
-to remove the existing version control.
 
 Then, to start up the local server, run
 ```bash
@@ -44,7 +26,7 @@ or
 npm start
 ```
 
-Open a browser and hit [http://localhost:3000](http://localhost:3000), and you're ready to roll. Modify `index.mdx` to see changes, but the best part about MDX is that you can create your own React components and import them into the `index.mdx` file to seamlessly integrate with markdown!
+Open a browser and hit [http://localhost:3000](http://localhost:3000) to see the deck.
 
 ## Build & Deployment
 
@@ -53,7 +35,29 @@ Building the dist version of the project is as easy as running
 npm run build
 ```
 
-If you want to deploy the slideshow to surge, run 
-```bash
-npm run deploy
-```
+## TODO
+
+### AST Explorer
+
+- [x] fix tree settings toggle in AST Explorer
+- [x] copy node key on click
+- [ ] zen mode shortcut to hide some things
+- [ ] create a slider for font scaling
+- [ ] adjust tree line height to fit when scaled
+- [ ] adjust tree margins to fit horizontally when scaled
+- [ ] change default zoom
+- [ ] show debug of scale size in %
+- [ ] deploy AST Explorer fork
+
+### Slides
+
+- [ ] compilers diagram
+- [ ] full-screen the AST Explorer slide
+- [ ] fix production deploy
+
+### Resources
+
+- [ ] setup website
+- [ ] link out to linting resources
+- [ ] link out to codemod resources
+- [ ] link out to other material
