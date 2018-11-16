@@ -1,5 +1,5 @@
 import { Appear, Cite, Fill, Fit, Image, Notes } from 'spectacle'
-import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide} from './slides'
+import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide, CiteTiny } from './slides'
 
 export default TitleSlide
 
@@ -64,11 +64,11 @@ export default ProfileSlide
 
 ---
 
-## Our Mission
-- daily developer problems
-- how compilers work
-- why ASTs are awesome
-- how ASTs solve our problems
+## Today's Cool Stuff
+- problems
+- compilers
+- why ???s are awesome
+- solutions
 
 <Notes>
   As a software developer, I'm still really curious about how things work.
@@ -131,11 +131,49 @@ var answer = 6 * 7;
 
 ---
 
+export default LightSlide
+
+<Image src="magic.webp" height={600} />
+
+---
+
 ![](babel.svg)
 
 <Notes>
-  That technique of defining nodes we care about? Babel let's . you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
+  That technique of defining nodes we care about? Babel let's you do the same thing. (look at a babel macro). The difference here is what you do when you find a pattern you care about. instead of reporting stuff, you mutate stuff 
 </Notes>
+
+---
+
+> Most compilers break down into three primary stages: *Parsing*, *Transformation*, and *Code Generation*
+
+<CiteTiny />
+
+---
+
+> 1. *Parsing* is taking raw code and turning it into a more abstract
+>    representation of the code.
+
+<CiteTiny />
+
+---
+
+> 2. *Transformation* takes this abstract representation and manipulates to do
+>    whatever the compiler wants it to.
+
+<CiteTiny />
+
+---
+
+> 3. *Code Generation* takes the transformed representation of the code and
+>    turns it into new code.
+
+<CiteTiny />
+
+---
+export default LightSlide
+
+# Abstract Representation
 
 ---
 
@@ -144,17 +182,27 @@ export default CodeSlide
 ```javascript
 // Life, Universe, and Everything
 
-[var] [answer] [=] [6] [*] [7][;]
+var answer = 6 * 7;
 
 // => 100011101010111010100011
+
 ```
 
-<Notes>
-  We start by breaking up this string into a sequence of tokens.
+---
 
-We know a little bit about the type of these tokens, but we need something more to understand their relationship to each other.
+export default CodeSlide
 
-</Notes>
+```javascript
+[var] [answer] [=] [6] [*] [7][;]
+```
+
+---
+
+export default CodeSlide
+
+```javascript
+['var', 'answer', '=', '6', '*', '7']
+```
 
 ---
 
@@ -181,7 +229,7 @@ export default NeoSlide
 
 ---
 
-# Explore ASTs
+# TRY IT
 
 <Notes>
   Try it.
@@ -195,18 +243,7 @@ export default NeoSlide
 </Notes>
 ---
 
-# Do NOT
-
-## write more Babel Plugins
-
-<Notes>
-  Do Sebastian a favor? Understand Babel, but don't write more plugins. apparently they are the bane of his existence trying to enhance Babel while supporting plugins going forward.
-</Notes>
----
-
-# DO
-
-## write a code mod
+# Automate API Changes
 
 <Notes>
   the next time you have shared code with breaking changes and lots of usages,
@@ -236,18 +273,6 @@ export default NeoSlide
 ---
 
 export default MachineSlide
-
----
-
-export default MachineSlide
-
-# Build Your Own Analyzers
-
----
-
-export default MachineSlide
-
-# Build Your Own CodeMods
 
 ---
 
