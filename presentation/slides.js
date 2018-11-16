@@ -220,6 +220,11 @@ export const Title = () => (
 
 export const ExplorerSlide = ({ children, ...rest }) => (
   <Slide>
+    <iframe height="700" width="1000" src="https://astexplorer.net" />
+  </Slide>
+)
+export const CascadiaExplorerSlide = ({ children, ...rest }) => (
+  <Slide>
     <iframe height="700" width="1000" src="http://localhost:8080" />
   </Slide>
 )

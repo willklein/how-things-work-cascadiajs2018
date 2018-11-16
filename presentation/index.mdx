@@ -1,5 +1,5 @@
 import { Appear, Cite, Fill, Fit, Image, Notes } from 'spectacle'
-import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide, CiteTiny } from './slides'
+import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide, CiteTiny, CascadiaExplorerSlide } from './slides'
 
 export default TitleImageSlide
 
@@ -209,12 +209,11 @@ export default ExplorerSlide
 
 ---
 
+export default CascadiaExplorerSlide
+
+---
+
 export default KungFuSlide
-
-
-<Notes>
-  We are JUST scratching the surface of what is possible with ASTs.
-</Notes>
 
 ---
 
@@ -226,24 +225,52 @@ export default NeoSlide
 
 # TRY IT
 
-<Notes>
-  Try it.
-</Notes>
 ---
 
 # Automate Code Review
 
 <Notes>
-  Do your teams a favor? Try automating your code reviews! Use (and write) codemods!
+  Remember our problems? We CAN save time, and automate our code reviews.
 </Notes>
+
+---
+
+export default CodeSlide
+
+```javascript
+async function getData() {
+  await api.request({
+    method: 'GET',
+    count: Infinity,
+    /* get ALL the data... what could go wrong */
+  })
+}
+```
+
 ---
 
 # Automate API Changes
 
 <Notes>
-  the next time you have shared code with breaking changes and lots of usages,
-  internally, or out in the wild
+  the next time JavaScript has a new feature, you swap one of your libraries or a framework has breaking changes, or even if you have shared code with breaking changes and lots of usages, write a code mod
 </Notes>
+
+---
+export default CodeSlide
+
+```javascript
+// Glamorous
+const BorderedInput = glamorous.input({
+  border: "0.5px solid #EBF0F5",
+  borderRadius: 2,
+})
+  
+// Emotion
+const BorderedInput = styled.input`
+  border: 0.5px solid #EBF0F5;
+  border-radius: 2px;
+`
+```
 
 ---
 
@@ -261,19 +288,29 @@ export default NeoSlide
   </Cite>
 </Appear>
 
+---
+
+export default MachineSlide
+
+
+# Build Plugins
+
 <Notes>
-  Now ... I'm not about to go out and write my own JavaScript compiler, but thanks his work, what Nicholas Zakas has done with ESLint, and the work of many, many other open source contributors, we have a fantastic set of tools that all of us can extend for ourselves.
+  Now ... I'm not about to go out and write my own JavaScript compiler, but thanks to tools like Babel, ESLint, and AST Explorer, we can write plugins that do really cool things.
 </Notes>
 
 ---
 
 export default MachineSlide
 
+
+# Harness the AST
+
 ---
 
 export default MachineSlide
 
-# Build Cool Things
+# Build Our Own Tools
 
 <Appear textColor="#FFF">
   <div>
@@ -290,5 +327,5 @@ export default MachineSlide
 
   ... be more effective as developers.
   
-  This has been fun, thanks for having me.
+  This has been fun, thank you.
 </Notes>
