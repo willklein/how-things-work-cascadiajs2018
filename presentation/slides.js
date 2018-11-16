@@ -167,6 +167,12 @@ export const ToolWallSlide = ({ children, ...rest }) => (
   </Slide>
 )
 
+export const ToolWallBackgroundSlide = ({ children, ...rest }) => (
+  <Slide bgImage="tool-wall.jpg" bgDarken={0.85} {...rest}>
+    <MDXProvider components={darkComponents}>{children}</MDXProvider>
+  </Slide>
+)
+
 export const WorkshopSlide = ({ children, ...rest }) => (
   <Slide bgImage="workshop.jpg" {...rest}>
     <MDXProvider components={lightComponents}>{children}</MDXProvider>
@@ -180,15 +186,15 @@ export const MachineSlide = ({ children, ...rest }) => (
 )
 
 export const WorkshopTitleSlide = ({ children, ...rest }) => (
-  <Slide bgImage="workshop.jpg" bgDarken={0.4} {...rest}>
+  <Slide bgImage="workshop.jpg" bgDarken={0.7} {...rest}>
     <Title />
 
-    <p textColor={theme.screen.colors.primary}>
+    <p style={{ color: '#FFF' }}>
       <strong>Will Klein</strong>
     </p>
 
-    <p textColor={theme.screen.colors.primary}>
-      @willslab
+    <p style={{ color: '#FFF' }}>
+      <strong>@willslab</strong>
     </p>
   </Slide>
 )

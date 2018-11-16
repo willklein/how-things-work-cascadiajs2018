@@ -1,5 +1,5 @@
 import { Appear, Cite, Fill, Fit, Image, Notes } from 'spectacle'
-import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, WorkshopTitleSlide, MachineSlide, CiteTiny, CascadiaExplorerSlide } from './slides'
+import { NeoSlide, KungFuSlide, ExplorerSlide, DarkSlide, LightSlide, ProfileSlide, CodeSlide, DrillSlide, TitleSlide, TitleImageSlide, LatheSlide, WorkshopSlide, ToolWallBackgroundSlide, WorkshopTitleSlide, MachineSlide, CiteTiny, CascadiaExplorerSlide } from './slides'
 
 export default TitleImageSlide
 
@@ -201,15 +201,13 @@ export default CodeSlide
 
 ---
 
+export default LightSlide
+
 <Image src="tree.png" width={1000} />
 
 ---
 
 export default ExplorerSlide
-
----
-
-export default CascadiaExplorerSlide
 
 ---
 
@@ -222,6 +220,8 @@ export default NeoSlide
 # I know <strike>Kung Fu</strike> ASTs
 
 ---
+
+export default LightSlide
 
 # TRY IT
 
@@ -256,6 +256,10 @@ async function getData() {
 </Notes>
 
 ---
+
+<Image src="github-issue.png" width={1000} />
+
+---
 export default CodeSlide
 
 ```javascript
@@ -274,23 +278,32 @@ const BorderedInput = styled.input`
 
 ---
 
+<Image src="emotion-codemod.png" width={1000} />
+
+---
+
 <Notes>
   Let me share one more story. One of my favorite JSConf talks was from a young developer giving his first conference talk. He shared some history of why he got into learning about ASTs.
 </Notes>
 
 ---
 
-> There was this new thing called ES6 ... There was a large gap in my knowledge on parsers, compilers and generally the intracacies of JavaScript. so I decided to make an ES6 transpiler to learn it, called 6to5.
+> There was this new thing called ES6  _... There was a large gap in my knowledge on parsers, compilers and generally the intracacies of JavaScript..._ so I decided to make an ES6 transpiler to learn it, called 6to5.
 
 <Appear>
   <Cite textColor="#95FDE4">
     Sebastian McKenzie, author of <strike>6to5</strike> Babel
+    @sebmck
   </Cite>
 </Appear>
 
 ---
 
-export default MachineSlide
+export default ToolWallBackgroundSlide
+
+---
+
+export default ToolWallBackgroundSlide
 
 
 # Build Plugins
@@ -301,14 +314,14 @@ export default MachineSlide
 
 ---
 
-export default MachineSlide
+export default ToolWallBackgroundSlide
 
 
 # Harness the AST
 
 ---
 
-export default MachineSlide
+export default ToolWallBackgroundSlide
 
 # Build Our Own Tools
 
