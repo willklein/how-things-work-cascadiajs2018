@@ -1,7 +1,7 @@
 {
-  "name": "spectacle-boilerplate",
-  "version": "1.0.1",
-  "description": "ReactJS Powered Presentation Framework",
+  "name": "how-cool-things-work",
+  "version": "1.0.0",
+  "description": "CascadiaJS 2018",
   "main": "lib/index.js",
   "scripts": {
     "clean": "rimraf dist",
@@ -11,7 +11,7 @@
     "export": "spectacle-renderer --delay 3000",
     "start": "cross-env NODE_ENV=development node server.js"
   },
-  "author": "",
+  "author": "Will Klein",
   "license": "MIT",
   "dependencies": {
     "deepmerge": "^2.1.1",

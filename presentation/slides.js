@@ -3,10 +3,6 @@ import { Cite, Heading, Slide, Text } from 'spectacle'
 import { MDXProvider } from '@mdx-js/tag'
 import components from './components'
 import theme from './theme'
-// import { redBright } from 'ansi-colors'
-
-// import createTheme from "spectacle-theme-sober";
-// const theme = createTheme();
 
 // DEFAULT LAYOUT
 
